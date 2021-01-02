@@ -5,7 +5,7 @@ type DocumentProps = {
   lang?: string;
   title: string;
   rootHTML: string;
-  initialProps: object;
+  initialProps: { [key: string]: any };
 };
 
 function Document({
