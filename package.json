@@ -2,7 +2,7 @@
   "scripts": {
     "watch": "nodemon",
     "build": "ts-node scripts/build.ts",
-    "start": "ts-node src/server/main.tsx",
+    "start": "ts-node src/server",
     "lint": "tsc && prettier --check ."
   },
   "dependencies": {
