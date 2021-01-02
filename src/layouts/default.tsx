@@ -7,13 +7,16 @@ interface DefaultLayoutProps {
 
 function DefaultLayout({ title, children }: DefaultLayoutProps) {
   return (
-    <html lang="en">
+    <>
       <head>
         <meta charSet="utf-8" />
         <title>{title}</title>
       </head>
-      <body>{children}</body>
-    </html>
+      <body>
+        {children}
+        <script src="/dist/bundle.js" />
+      </body>
+    </>
   );
 }
 
