@@ -1,10 +1,10 @@
 import { h } from 'preact';
 
-interface DocumentProps {
+type DocumentProps = {
   lang?: string;
   title: string;
   rootHTML: string;
-}
+};
 
 function Document({ lang = 'en', title, rootHTML }: DocumentProps) {
   return (

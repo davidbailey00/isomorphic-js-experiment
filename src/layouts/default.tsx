@@ -1,8 +1,8 @@
 import { h, ComponentChildren } from 'preact';
 
-interface DefaultLayoutProps {
+type DefaultLayoutProps = {
   children: ComponentChildren;
-}
+};
 
 function DefaultLayout({ children }: DefaultLayoutProps) {
   return <div>{children}</div>;
