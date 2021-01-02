@@ -5,7 +5,7 @@ import Timer from '../components/timer';
 
 function DefaultPage() {
   return (
-    <DefaultLayout title="Hello, world!">
+    <DefaultLayout>
       <h1>Hello, world!</h1>
       <p>Rendered with Express</p>
 

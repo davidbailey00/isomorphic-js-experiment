@@ -3,4 +3,4 @@ import { hydrate } from 'react-dom';
 
 import DefaultPage from './pages/default';
 
-hydrate(<DefaultPage />, document.documentElement);
+hydrate(<DefaultPage />, document.getElementById('__root'));
