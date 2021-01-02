@@ -1,4 +1,5 @@
 {
+  "name": "express-preact-experiment",
   "scripts": {
     "watch": "nodemon",
     "build": "ts-node scripts/build.ts",
