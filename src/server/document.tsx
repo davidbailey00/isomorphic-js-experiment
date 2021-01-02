@@ -1,19 +1,22 @@
 import { h } from 'preact';
 import serialize from 'serialize-javascript';
 
-type DocumentProps = {
+export interface DocumentProps {
   lang?: string;
   title: string;
-  rootHTML: string;
-  initialProps: { [key: string]: any };
-};
+}
 
-function Document({
+interface FullDocumentProps<ViewProps> extends DocumentProps {
+  viewHTML: string;
+  viewProps: ViewProps;
+}
+
+function Document<ViewProps>({
   lang = 'en',
   title,
-  rootHTML,
-  initialProps,
-}: DocumentProps) {
+  viewHTML,
+  viewProps,
+}: FullDocumentProps<ViewProps>) {
   return (
     <html lang={lang}>
       <head>
@@ -21,12 +24,12 @@ function Document({
         <title>{title}</title>
       </head>
       <body>
-        <div id="__root" dangerouslySetInnerHTML={{ __html: rootHTML }} />
+        <div id="__view" dangerouslySetInnerHTML={{ __html: viewHTML }} />
         <script
-          id="__initialProps"
+          id="__viewProps"
           type="application/json"
           dangerouslySetInnerHTML={{
-            __html: serialize(initialProps, { isJSON: true }),
+            __html: serialize(viewProps, { isJSON: true }),
           }}
         />
         <script src="/dist/bundle.js" />

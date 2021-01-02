@@ -1,10 +1,10 @@
 import { h, hydrate } from 'preact';
 
-import View, { ViewProps } from './views/default';
+import DefaultView, { DefaultViewProps } from './views/default';
 
-const root = document.getElementById('__root')!;
-const initialProps: ViewProps = JSON.parse(
-  document.getElementById('__initialProps')!.innerHTML,
+const root = document.getElementById('__view')!;
+const viewProps: DefaultViewProps = JSON.parse(
+  document.getElementById('__viewProps')!.innerHTML,
 );
 
-hydrate(<View {...initialProps} />, root);
+hydrate(<DefaultView {...viewProps} />, root);

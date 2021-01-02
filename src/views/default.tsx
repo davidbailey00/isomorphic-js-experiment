@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import Timer from '../components/timer';
 
-type DefaultViewProps = {
+export interface DefaultViewProps {
   name: string;
-};
+}
 
 function DefautView({ name }: DefaultViewProps) {
   return (
@@ -16,10 +16,4 @@ function DefautView({ name }: DefaultViewProps) {
   );
 }
 
-export async function getInitialProps(): Promise<DefaultViewProps> {
-  console.log('this runs on the server!');
-  return { name: 'world' };
-}
-
-export type ViewProps = DefaultViewProps;
 export default DefautView;
