@@ -1,6 +1,10 @@
-import React from 'react';
-import { hydrate } from 'react-dom';
+import { h, hydrate } from 'preact';
 
 import DefaultPage from './pages/default';
 
-hydrate(<DefaultPage />, document.getElementById('__root'));
+const root = document.getElementById('__root');
+if (root) {
+  hydrate(<DefaultPage />, root);
+} else {
+  throw new Error('root element was not found');
+}

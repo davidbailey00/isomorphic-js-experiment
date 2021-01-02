@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 
 import DefaultLayout from '../layouts/default';
 import Timer from '../components/timer';

@@ -4,7 +4,7 @@ build({
   entryPoints: ['src/client.tsx'],
   bundle: true,
   outfile: 'dist/bundle.js',
-  define: { 'process.env.NODE_ENV': '"PRODUCTION"' },
+  minify: true,
 }).catch((err) => {
   console.error(err);
   process.exit(1);

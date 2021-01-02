@@ -1,7 +1,7 @@
 import express from 'express';
 
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+import { h } from 'preact';
+import render from 'preact-render-to-string';
 
 import Document from './document';
 import DefaultPage from './pages/default';
@@ -12,12 +12,10 @@ const port = 3000;
 app.use('/dist', express.static('dist'));
 
 app.get('/', function (req, res) {
-  const rootHTML = ReactDOMServer.renderToString(<DefaultPage />);
+  const rootHTML = render(<DefaultPage />);
   res.send(
     '<!DOCTYPE html>' +
-      ReactDOMServer.renderToStaticMarkup(
-        <Document title="Hello, world!" rootHTML={rootHTML} />,
-      ),
+      render(<Document title="Hello, world!" rootHTML={rootHTML} />),
   );
 });
 

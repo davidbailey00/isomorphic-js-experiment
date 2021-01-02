@@ -1,7 +1,7 @@
-import React from 'react';
+import { h, ComponentChildren } from 'preact';
 
 interface DefaultLayoutProps {
-  children: React.ReactNode;
+  children: ComponentChildren;
 }
 
 function DefaultLayout({ children }: DefaultLayoutProps) {
