@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "build": "esbuild src/client.tsx --bundle --outfile=dist/bundle.js --define:'process.env.NODE_ENV=\"production\"'",
+    "build": "node build.js",
     "start": "sucrase-node src/server.tsx",
-    "lint": "tsc && prettier -c **/*.{json,tsx}"
+    "lint": "tsc && prettier -c **/*.{json,js,tsx}"
   },
   "dependencies": {
     "express": "^4.17.1",
