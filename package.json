@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "start": "sucrase-node src/server.tsx",
+    "lint": "tsc && prettier -c **/*.{json,tsx}"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "prettier": "^2.2.1",
+    "sucrase": "^3.17.0"
+  }
+}
