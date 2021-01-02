@@ -11,7 +11,7 @@ const port = 3000;
 
 app.use('/dist', express.static('dist'));
 
-app.get('/', function (req, res) {
+app.get('/', function (_req, res) {
   const rootHTML = render(<DefaultPage />);
   res.send(
     '<!DOCTYPE html>' +
