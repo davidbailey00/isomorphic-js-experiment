@@ -15,7 +15,12 @@ function render<ViewProps>({
 }: RenderOptions<ViewProps>) {
   const viewHTML = preactRender(<View {...viewProps} />);
   const docHTML = preactRender(
-    <Document {...documentProps} viewHTML={viewHTML} viewProps={viewProps} />,
+    <Document
+      {...documentProps}
+      viewName={View.name}
+      viewHTML={viewHTML}
+      viewProps={viewProps}
+    />,
   );
 
   return '<!DOCTYPE html>' + docHTML;

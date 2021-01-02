@@ -7,6 +7,7 @@ export interface DocumentProps {
 }
 
 interface FullDocumentProps<ViewProps> extends DocumentProps {
+  viewName: string;
   viewHTML: string;
   viewProps: ViewProps;
 }
@@ -14,6 +15,7 @@ interface FullDocumentProps<ViewProps> extends DocumentProps {
 function Document<ViewProps>({
   lang = 'en',
   title,
+  viewName,
   viewHTML,
   viewProps,
 }: FullDocumentProps<ViewProps>) {
@@ -24,7 +26,11 @@ function Document<ViewProps>({
         <title>{title}</title>
       </head>
       <body>
-        <div id="__view" dangerouslySetInnerHTML={{ __html: viewHTML }} />
+        <div
+          id="__view"
+          data-view={viewName}
+          dangerouslySetInnerHTML={{ __html: viewHTML }}
+        />
         <script
           id="__viewProps"
           type="application/json"
