@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "node build.js",
+    "build": "sucrase-node build.ts",
     "start": "sucrase-node src/server.tsx",
     "lint": "tsc && prettier --check ."
   },
