@@ -2,7 +2,7 @@
   "scripts": {
     "build": "node build.js",
     "start": "sucrase-node src/server.tsx",
-    "lint": "tsc && prettier -c **/*.{json,js,tsx}"
+    "lint": "tsc && prettier --check ."
   },
   "dependencies": {
     "express": "^4.17.1",
