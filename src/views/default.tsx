@@ -5,7 +5,7 @@ export interface DefaultViewProps {
   name: string;
 }
 
-function DefautView({ name }: DefaultViewProps) {
+function DefaultView({ name }: DefaultViewProps) {
   return (
     <main>
       <h1>Hello, {name}!</h1>
@@ -16,4 +16,4 @@ function DefautView({ name }: DefaultViewProps) {
   );
 }
 
-export default DefautView;
+export default DefaultView;
