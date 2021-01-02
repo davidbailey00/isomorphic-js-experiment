@@ -21,4 +21,5 @@ export async function getInitialProps(): Promise<DefaultViewProps> {
   return { name: 'world' };
 }
 
+export type ViewProps = DefaultViewProps;
 export default DefautView;
