@@ -27,7 +27,7 @@ function Document<ViewProps>({
       </head>
       <body>
         <div
-          id="__view"
+          id="__viewRoot"
           data-view={viewName}
           dangerouslySetInnerHTML={{ __html: viewHTML }}
         />
