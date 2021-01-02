@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h, Fragment } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 
 function Timer() {
@@ -10,10 +10,10 @@ function Timer() {
   }, []);
 
   return (
-    <div>
+    <>
       <h2>Timer</h2>
       <p>Count: {time} seconds</p>
-    </div>
+    </>
   );
 }
 

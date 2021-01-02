@@ -8,10 +8,12 @@
   "dependencies": {
     "express": "^4.17.1",
     "preact": "^10.5.8",
-    "preact-render-to-string": "^5.1.12"
+    "preact-render-to-string": "^5.1.12",
+    "serialize-javascript": "^5.0.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",
+    "@types/serialize-javascript": "^5.0.0",
     "esbuild": "^0.8.29",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.1",

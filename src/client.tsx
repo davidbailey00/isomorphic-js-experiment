@@ -1,6 +1,10 @@
 import { h, hydrate } from 'preact';
 
-import DefaultPage from './pages/default';
+import DefaultView from './views/default';
 
 const root = document.getElementById('__root')!;
-hydrate(<DefaultPage />, root);
+const initialProps = JSON.parse(
+  document.getElementById('__initialProps')!.innerHTML,
+);
+
+hydrate(<DefaultView {...initialProps} />, root);
