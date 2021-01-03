@@ -25,6 +25,7 @@ function Document<ViewProps>({
         <meta charSet="utf-8" />
         <title>{title}</title>
         <link rel="stylesheet" href="/dist/styles.css" />
+        <script type="module" src="/dist/client.js" />
       </head>
       <body>
         <div
@@ -39,7 +40,6 @@ function Document<ViewProps>({
             __html: serialize(viewProps, { isJSON: true }),
           }}
         />
-        <script type="module" src="/dist/client.js" />
       </body>
     </html>
   );

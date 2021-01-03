@@ -2,6 +2,7 @@ import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 
 import bem from '../util/bem';
+const timer = bem('Timer');
 
 function Timer() {
   const [time, setTime] = useState(0);
@@ -13,7 +14,6 @@ function Timer() {
     return () => clearInterval(interval);
   }, []);
 
-  const timer = bem('Timer');
   return (
     <div className={timer()}>
       <h2 className={timer.header()}>Timer</h2>

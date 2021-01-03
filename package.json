@@ -1,8 +1,12 @@
 {
   "name": "express-preact-experiment",
   "scripts": {
-    "watch": "nodemon",
-    "build": "ts-node scripts/build-ts & ts-node scripts/build-scss",
+    "watch": "concurrently npm:watch:ts npm:watch:scss",
+    "watch:ts": "nodemon -w src -e ts,tsx -x 'npm run build:ts & npm start'",
+    "watch:scss": "nodemon -w src -e scss -x 'npm run build:scss'",
+    "build": "concurrently npm:build:ts npm:build:scss",
+    "build:ts": "node scripts/build-ts",
+    "build:scss": "sass --style=compressed src/styles.scss dist/styles.css",
     "start": "ts-node src/server",
     "lint": "tsc && prettier --check ."
   },
@@ -14,8 +18,8 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.9",
-    "@types/sass": "^1.16.0",
     "@types/serialize-javascript": "^5.0.0",
+    "concurrently": "^5.3.0",
     "esbuild": "^0.8.29",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.1",
