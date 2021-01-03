@@ -1,6 +1,9 @@
 import { h, hydrate, FunctionComponent } from 'preact';
 
-type ViewImporter = () => Promise<{ default: FunctionComponent<object> }>;
+type ViewImporter = () => Promise<{
+  default: FunctionComponent<object>;
+}>;
+
 const views: { [key: string]: ViewImporter } = {
   DefaultView: () => import('./views/default'),
 };

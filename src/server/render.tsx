@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact';
 import { render as preactRender } from 'preact-render-to-string';
 import Document, { DocumentProps } from './document';
 
-interface RenderOptions<ViewProps> {
+interface RenderData<ViewProps> {
   View: FunctionComponent<ViewProps>;
   viewProps: ViewProps;
   documentProps: DocumentProps;
@@ -12,9 +12,9 @@ function render<ViewProps>({
   View,
   viewProps,
   documentProps,
-}: RenderOptions<ViewProps>) {
+}: RenderData<ViewProps>) {
   const viewHTML = preactRender(<View {...viewProps} />);
-  const docHTML = preactRender(
+  const documentHTML = preactRender(
     <Document
       {...documentProps}
       viewName={View.name}
@@ -23,7 +23,7 @@ function render<ViewProps>({
     />,
   );
 
-  return '<!DOCTYPE html>' + docHTML;
+  return '<!DOCTYPE html>' + documentHTML;
 }
 
 export default render;

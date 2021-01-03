@@ -9,8 +9,8 @@ const port = 3000;
 
 app.use('/dist', express.static('dist'));
 
-app.get('/', async (_req, res) => {
-  const viewProps: DefaultViewProps = { name: 'world' };
+app.get('/', async (req, res) => {
+  const viewProps: DefaultViewProps = { name: 'world', path: req.path };
   const documentProps: DocumentProps = { title: 'Hello, world!' };
 
   res.send(render({ View: DefaultView, viewProps, documentProps }));
