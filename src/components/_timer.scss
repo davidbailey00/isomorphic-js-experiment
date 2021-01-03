@@ -13,5 +13,10 @@
     &--bold {
       font-weight: bold;
     }
+
+    &__clock {
+      font-family: monospace;
+      color: green;
+    }
   }
 }

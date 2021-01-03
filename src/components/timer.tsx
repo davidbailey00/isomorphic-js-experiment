@@ -13,11 +13,13 @@ function Timer() {
     return () => clearInterval(interval);
   }, []);
 
-  const b = bem('Timer');
+  const timer = bem('Timer');
   return (
-    <div className={b()}>
-      <h2 className={b.header()}>Timer</h2>
-      <p className={b.paragraph('blue', 'bold')}>Count: {time} seconds</p>
+    <div className={timer()}>
+      <h2 className={timer.header()}>Timer</h2>
+      <p className={timer.paragraph('blue', 'bold')}>
+        Count: <span className={timer.paragraph.clock()}>{time}</span> seconds
+      </p>
     </div>
   );
 }

@@ -24,11 +24,7 @@ function Document<ViewProps>({
       <head>
         <meta charSet="utf-8" />
         <title>{title}</title>
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `.c.timer .header { font-family: sans-serif; color: red }`,
-          }}
-        />
+        <link rel="stylesheet" href="/dist/styles.css" />
       </head>
       <body>
         <div
