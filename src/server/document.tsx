@@ -41,7 +41,7 @@ function Document<ViewProps>({
             __html: serialize(viewProps, { isJSON: true }),
           }}
         />
-        <script src="/dist/bundle.js" />
+        <script type="module" src="/dist/bundle.js" />
       </body>
     </html>
   );
