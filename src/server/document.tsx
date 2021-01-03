@@ -10,6 +10,7 @@ interface FullDocumentProps<ViewProps> extends DocumentProps {
   viewName: string;
   viewHTML: string;
   viewProps: ViewProps;
+  gooberCSS: string;
 }
 
 function Document<ViewProps>({
@@ -18,12 +19,14 @@ function Document<ViewProps>({
   viewName,
   viewHTML,
   viewProps,
+  gooberCSS,
 }: FullDocumentProps<ViewProps>) {
   return (
     <html lang={lang}>
       <head>
         <meta charSet="utf-8" />
         <title>{title}</title>
+        <style id="_goober">{gooberCSS}</style>
       </head>
       <body>
         <div
