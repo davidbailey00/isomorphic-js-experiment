@@ -3,7 +3,8 @@ import { build } from 'esbuild';
 build({
   entryPoints: ['src/client.tsx'],
   bundle: true,
-  outfile: 'dist/bundle.js',
+  outdir: 'dist',
+  splitting: true,
   minify: true,
   format: 'esm',
 }).catch((err) => {

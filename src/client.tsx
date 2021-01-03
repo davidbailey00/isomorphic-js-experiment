@@ -1,14 +1,17 @@
 import { h, hydrate, FunctionComponent } from 'preact';
 
-import DefaultView from './views/default';
-
-const views: { [key: string]: FunctionComponent<object> } = {
-  DefaultView,
+type ViewImporter = () => Promise<{ default: FunctionComponent<object> }>;
+const views: { [key: string]: ViewImporter } = {
+  DefaultView: () => import('./views/default'),
 };
 
 const viewRoot = document.getElementById('__viewRoot')!;
+const importView = views[viewRoot.getAttribute('data-view')!];
 
-const View = views[viewRoot.getAttribute('data-view')!];
-const viewProps = JSON.parse(document.getElementById('__viewProps')!.innerHTML);
+importView().then(({ default: View }) => {
+  const viewProps = JSON.parse(
+    document.getElementById('__viewProps')!.innerHTML,
+  );
 
-hydrate(<View {...viewProps} />, viewRoot);
+  hydrate(<View {...viewProps} />, viewRoot);
+});
