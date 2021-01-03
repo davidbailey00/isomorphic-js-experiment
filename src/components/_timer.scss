@@ -1,0 +1,17 @@
+.Timer {
+  &__header {
+    font-family: sans-serif;
+    color: red;
+  }
+
+  &__paragraph {
+    font-family: sans-serif;
+
+    &--blue {
+      color: blue;
+    }
+    &--bold {
+      font-weight: bold;
+    }
+  }
+}
