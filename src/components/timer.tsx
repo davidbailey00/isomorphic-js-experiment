@@ -11,16 +11,14 @@ function Timer() {
     return () => clearInterval(interval);
   }, [time, setTime]);
 
-  const classes = {
-    header: css`
-      font-family: sans-serif;
-      color: red;
-    `,
-  };
+  const headerClass = css`
+    font-family: sans-serif;
+    color: red;
+  `;
 
   return (
     <>
-      <h2 className={classes.header}>Timer</h2>
+      <h2 className={headerClass}>Timer</h2>
       <p>Count: {time} seconds</p>
     </>
   );
