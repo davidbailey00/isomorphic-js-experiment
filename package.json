@@ -8,7 +8,8 @@
     "build:ts": "node scripts/build-ts",
     "build:scss": "sass --style=compressed src/styles.scss dist/styles.css",
     "start": "ts-node src/server",
-    "lint": "tsc && prettier --check ."
+    "lint": "tsc && prettier --check .",
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -23,6 +24,7 @@
     "esbuild": "^0.8.29",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "sass": "^1.32.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
