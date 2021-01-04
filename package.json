@@ -1,14 +1,16 @@
 {
   "name": "express-preact-experiment",
   "scripts": {
-    "watch": "concurrently npm:watch:ts npm:watch:scss",
-    "watch:ts": "nodemon -w src -e ts,tsx -x 'npm run build:ts & npm start'",
+    "watch": "concurrently npm:watch:js:server npm:watch:js:client npm:watch:scss",
+    "watch:js:server": "nodemon -w src -e js,jsx -x 'npm run build:js:server && npm start'",
+    "watch:js:client": "nodemon -w src -e js,jsx -x 'npm run build:js:client'",
     "watch:scss": "nodemon -w src -e scss -x 'npm run build:scss'",
-    "build": "concurrently npm:build:ts npm:build:scss",
-    "build:ts": "node scripts/build-ts",
-    "build:scss": "sass --style=compressed src/styles.scss dist/styles.css",
-    "start": "ts-node src/server",
-    "lint": "tsc && prettier --check .",
+    "build": "concurrently npm:build:js:server npm:build:js:client npm:build:scss",
+    "build:js:server": "mkdirp dist/server && sucrase src -d dist/server --transforms imports,jsx --jsx-pragma h --jsx-fragment-pragma Fragment",
+    "build:js:client": "esbuild src/client.jsx --outdir=dist/client --bundle --splitting --minify --sourcemap --format=esm",
+    "build:scss": "sass --style=compressed src/styles.scss dist/client/styles.css",
+    "start": "node dist/server/server",
+    "lint": "eslint . && prettier -c .",
     "clean": "rimraf dist"
   },
   "dependencies": {
@@ -18,15 +20,15 @@
     "serialize-javascript": "^5.0.1"
   },
   "devDependencies": {
-    "@types/express": "^4.17.9",
-    "@types/serialize-javascript": "^5.0.0",
     "concurrently": "^5.3.0",
     "esbuild": "^0.8.29",
+    "eslint": "^7.17.0",
+    "eslint-plugin-react": "^7.22.0",
+    "mkdirp": "^1.0.4",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "sass": "^1.32.0",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.1.3"
+    "sucrase": "^3.17.0"
   }
 }

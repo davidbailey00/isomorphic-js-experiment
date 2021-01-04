@@ -1,17 +1,16 @@
 import express from 'express';
 import render from './render';
-import { DocumentProps } from './document';
 
-import DefaultView, { DefaultViewProps } from '../views/default';
+import DefaultView from '../views/default';
 
 const app = express();
 const port = 3000;
 
-app.use('/dist', express.static('dist'));
+app.use('/dist', express.static('dist/client'));
 
 app.get('/', async (req, res) => {
-  const viewProps: DefaultViewProps = { name: 'world', path: req.path };
-  const documentProps: DocumentProps = { title: 'Hello, world!' };
+  const viewProps = { name: 'world', path: req.path };
+  const documentProps = { title: 'Hello, world!' };
 
   res.send(render({ View: DefaultView, viewProps, documentProps }));
 });

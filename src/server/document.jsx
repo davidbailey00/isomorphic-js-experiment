@@ -1,24 +1,7 @@
 import { h } from 'preact';
 import serialize from 'serialize-javascript';
 
-export interface DocumentProps {
-  lang?: string;
-  title: string;
-}
-
-interface FullDocumentProps<ViewProps> extends DocumentProps {
-  viewName: string;
-  viewHTML: string;
-  viewProps: ViewProps;
-}
-
-function Document<ViewProps>({
-  lang = 'en',
-  title,
-  viewName,
-  viewHTML,
-  viewProps,
-}: FullDocumentProps<ViewProps>) {
+function Document({ lang = 'en', title, viewName, viewHTML, viewProps }) {
   return (
     <html lang={lang}>
       <head>

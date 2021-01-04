@@ -1,12 +1,7 @@
 import { h } from 'preact';
 import Timer from '../components/timer';
 
-export interface DefaultViewProps {
-  name: string;
-  path: string;
-}
-
-function DefaultView({ name, path }: DefaultViewProps) {
+function DefaultView({ name, path }) {
   return (
     <main>
       <h1>Hello, {name}!</h1>

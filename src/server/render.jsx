@@ -1,18 +1,8 @@
-import { h, FunctionComponent } from 'preact';
+import { h } from 'preact';
 import { render as preactRender } from 'preact-render-to-string';
-import Document, { DocumentProps } from './document';
+import Document from './document';
 
-interface RenderData<ViewProps> {
-  View: FunctionComponent<ViewProps>;
-  viewProps: ViewProps;
-  documentProps: DocumentProps;
-}
-
-function render<ViewProps>({
-  View,
-  viewProps,
-  documentProps,
-}: RenderData<ViewProps>) {
+function render({ View, viewProps, documentProps }) {
   const viewHTML = preactRender(<View {...viewProps} />);
   const documentHTML = preactRender(
     <Document
