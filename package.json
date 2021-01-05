@@ -24,6 +24,7 @@
     "esbuild": "^0.8.29",
     "eslint": "^7.17.0",
     "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.1",
     "sass": "^1.32.0",
